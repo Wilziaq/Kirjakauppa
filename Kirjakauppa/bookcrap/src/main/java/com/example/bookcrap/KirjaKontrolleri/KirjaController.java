@@ -40,8 +40,7 @@ public class KirjaController {
     }
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public String deleteBook(@PathVariable("id") String id, Model model){
-        Long ID = Long.parseLong(id);
-        repo.delete(ID);
+        repo.delete(Long.parseLong(id));
         return "redirect:/lista";
     }
 }
