@@ -16,7 +16,9 @@
         <td th:text="${kirja.title}"></td>
         <td th:text="${kirja.author}"></td>
         <td th:text="${kirja.isbn}"></td>
+        <td><a th:href="@{/delete/{id}(id=${kirja.id})}">Delete</a></td>
     </tr>
 </table>
+<a th:href="@{/addbook}">Add Book</a>
 </body>
 </html>
