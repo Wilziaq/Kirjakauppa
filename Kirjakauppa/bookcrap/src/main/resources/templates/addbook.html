@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${kirja}" th:action="@{save}" action="#" method="post">
+    Book name:
+    <input type="text" id="bookname" th:field="*{title}"/>
+    Author of the Book:
+    <input type="text" id="bookauthor" th:field="*{author}"/>
+    ISBN:
+    <input type="text" id="bookisbn" th:field="*{isbn}"/>
+    <button type="submit">Add Book</button>
+</form>
+</body>
+</html>
