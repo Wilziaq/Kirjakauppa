@@ -8,4 +8,5 @@ public interface KirjaRepo extends CrudRepository<Kirja, Long> {
     List<Kirja> findByAuthor(String author);
     List<Kirja> findByTitle(String title);
     List<Kirja> findByIsbn(String isbn);
+    Kirja findById(Long id);
 }

@@ -3,12 +3,11 @@ package com.example.bookcrap.KirjaKontrolleri;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import sun.misc.Request;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class KirjaController {
@@ -43,5 +42,14 @@ public class KirjaController {
         Long ID = Long.parseLong(id);
         repo.delete(ID);
         return "redirect:/lista";
+    }
+    //harjoitus 4 REST tehtävä 1; metodi kaikkien kirjojen hakuun ja palautukseen JSON muodossa, id perusteella sekä REST api polku /api muotoon.
+    @RequestMapping(value = "/books", method = RequestMethod.GET)
+    public @ResponseBody List<Kirja> bookListRest(){
+        return (List<Kirja>) repo.findAll();
+    }
+    @RequestMapping(value = "/books/{id}", method = RequestMethod.GET)
+    public @ResponseBody Kirja bookRest(@PathVariable("id") String id){
+        return (Kirja) repo.findById(Long.parseLong(id));
     }
 }
