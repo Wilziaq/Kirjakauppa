@@ -52,4 +52,9 @@ public class KirjaController {
     public @ResponseBody Kirja bookRest(@PathVariable("id") String id){
         return (Kirja) repo.findById(Long.parseLong(id));
     }
+    //login contorlleri vielä!
+    @RequestMapping( value = "/login", method = RequestMethod.POST)
+    public String signIn(){
+        return "user";
+    }
 }

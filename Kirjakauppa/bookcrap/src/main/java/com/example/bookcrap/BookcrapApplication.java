@@ -2,6 +2,8 @@ package com.example.bookcrap;
 
 import com.example.bookcrap.KirjaKontrolleri.Kirja;
 import com.example.bookcrap.KirjaKontrolleri.KirjaRepo;
+import com.example.bookcrap.KirjaKontrolleri.User;
+import com.example.bookcrap.KirjaKontrolleri.UserCrudRepo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,6 +26,12 @@ public class BookcrapApplication {
 			for(Kirja book: repo.findAll()){
 				System.out.print(book);
 			}
+		};
+	}
+	public CommandLineRunner userRepo(UserCrudRepo repo){
+		return (args) ->{
+			repo.save(new User("user", "password", "USER"));
+			repo.save(new User("admin", "1234", "ADMIN"));
 		};
 	}
 }
