@@ -13,6 +13,7 @@ import java.util.List;
 public class KirjaController {
     @Autowired
     private KirjaRepo repo;
+    private UserCrudRepo repos;
     private ArrayList<Kirja> kirja = new ArrayList<Kirja>();
 
     @RequestMapping(value = "/index")
@@ -53,8 +54,13 @@ public class KirjaController {
         return (Kirja) repo.findById(Long.parseLong(id));
     }
     //login contorlleri vielä!
-    @RequestMapping( value = "/login", method = RequestMethod.POST)
+    @RequestMapping( value = "/login")
     public String signIn(){
-        return "user";
+        return "login";
     }
+    @RequestMapping(value = "/logout")
+    public String logout(){
+        return "login";
+    }
+
 }
