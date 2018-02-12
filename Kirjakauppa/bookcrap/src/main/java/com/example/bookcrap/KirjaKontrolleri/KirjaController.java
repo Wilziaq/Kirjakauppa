@@ -49,6 +49,7 @@ public class KirjaController {
     public @ResponseBody List<Kirja> bookListRest(){
         return (List<Kirja>) repo.findAll();
     }
+
     @RequestMapping(value = "/books/{id}", method = RequestMethod.GET)
     public @ResponseBody Kirja bookRest(@PathVariable("id") String id){
         return (Kirja) repo.findById(Long.parseLong(id));
@@ -58,9 +59,10 @@ public class KirjaController {
     public String signIn(){
         return "login";
     }
+
     @RequestMapping(value = "/logout")
     public String logout(){
-        return "login";
+        return "redirect:/login";
     }
 
 }
